@@ -1,0 +1,132 @@
+<!--
+    
+    
+    To create a basic calculator using CSS, HTML, and JavaScript, 
+you'll need to implement an interactive interface with buttons for 
+addition, subtraction, multiplication, and division operations. The 
+calculator should have a display screen to show user input and 
+results. Utilize CSS grid system for button alignments. Use event 
+listeners, if-else statements, operators, and loops to handle user 
+input and perform calculations. This project requires some skill 
+but can be done with basic knowledge of these technologies..
+
+
+--> <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calculator input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .calculator .mybtn {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            background-color: #f2f2f2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculator .mybtn.operator {
+            background-color: #ffaf30;
+        }
+
+        .calculator .mybtn.clear {
+            background-color: #ff6565;
+        }
+
+        .calculator .mybtn.equal {
+            background-color: #4caf50;
+        }
+        h1{
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="calculator">
+        <h1>basic Calculator</h1>
+        <input type="text" id="txt1" readonly>
+        <br>
+        <button class="mybtn">1</button>
+        <button class="mybtn">2</button>
+        <button class="mybtn">3</button>
+        <button class="mybtn">+</button>
+        <br>
+        <button class="mybtn">4</button>
+        <button class="mybtn">5</button>
+        <button class="mybtn">6</button>
+        <button class="mybtn">-</button>
+        <br>
+        <button class="mybtn">7</button>
+        <button class="mybtn">8</button>
+        <button class="mybtn">9</button>
+        <button class="mybtn">*</button>
+        <br>
+        <button class="mybtn">0</button>
+        <button class="mybtn">C</button>
+        <button class="mybtn">/</button>
+        <button class="mybtn">%</button>
+        <br>
+        <button class="mybtn equal">=</button>
+    </div>
+</body>
+</html>     
+        <script>
+
+            const textBox = document.getElementById("txt1");
+            const buttons = document.querySelectorAll(".mybtn");
+    
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const value = button.textContent;
+    
+                    if (value === "=") {
+                        equl();
+                    } else if (value === "C") {
+                        textBox.value = "";  // Clear the textBox
+                    } else {
+                        textBox.value += value;  // Append the button's text to the textBox
+                    }
+                });
+            });
+    
+            function equl() {
+                try {
+                    const result = eval(textBox.value);  // Evaluate the expression
+                    textBox.value = result;
+                    console.log(result)
+                    console.log(result);
+                } catch (error) {
+                    console.error("Invalid expression");
+                    textBox.value = "Error";
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
